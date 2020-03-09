@@ -24,9 +24,11 @@
     {% include 'appbuilder/general/alert.html' %}
 
     {% block navbar %}
+      {% if not (request.args.get('standalone_mode')) %}
         <header class="top" role="header">
         {% include 'appbuilder/navbar.html' %}
         </header>
+      {% endif %}
     {% endblock %}
 
     {% block uncontained %}{% endblock %}
