@@ -1146,6 +1146,12 @@ class Superset(BaseSupersetView):
         form_data, slc = get_form_data(use_slice_data=True)
         error_redirect = "/chart/list/"
 
+        check_admin_user = [role.name.lower() for role in list(get_user_roles())]
+        if "gamma" in check_admin_user and "admin" not in check_admin_user:
+            is_disable_header = True
+        else:
+            is_disable_header = False
+
         try:
             datasource_id, datasource_type = get_datasource_info(
                 datasource_id, datasource_type, form_data
@@ -1250,7 +1256,7 @@ class Superset(BaseSupersetView):
             bootstrap_data=json.dumps(bootstrap_data),
             entry="explore",
             title=title,
-            standalone_mode=standalone,
+            standalone_mode=standalone or is_disable_header,
         )
 
     @api
@@ -2948,10 +2954,18 @@ class Superset(BaseSupersetView):
             "defaultDbId": config.get("SQLLAB_DEFAULT_DBID"),
             "common": self.common_bootstrap_payload(),
         }
+        check_admin_user = [role.name.lower() for role in list(get_user_roles())]
+
+        if "gamma" in check_admin_user:
+            is_disable_header = True
+        else:
+            is_disable_header = False
+
         return self.render_template(
             "superset/basic.html",
             entry="sqllab",
             bootstrap_data=json.dumps(d, default=utils.json_iso_dttm_ser),
+            standalone_mode=is_disable_header
         )
 
     @api

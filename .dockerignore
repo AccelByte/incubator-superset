@@ -30,6 +30,7 @@
 **/*.pyc
 **/*.sqllite
 **/*.swp
+**/yarn.lock
 
 tests/
 docs/
@@ -37,3 +38,4 @@ install/
 superset/assets/node_modules/
 superset/assets/cypress/
 superset/assets/coverage/
+env/
