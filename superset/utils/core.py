@@ -1033,7 +1033,7 @@ def get_since_until(
     Additionally, for `time_range` (these specify both `since` and `until`):
 
         - Last day
-        - Last week
+        - Last 7 days
         - Last month
         - Last quarter
         - Last year
@@ -1050,8 +1050,9 @@ def get_since_until(
             relative_start - relativedelta(days=1),  # type: ignore
             relative_end,
         ),
-        "Last week": (
-            relative_start - relativedelta(weeks=1),  # type: ignore
+        # https://accelbyte.atlassian.net/browse/AN-241 change last week to last 7 days
+        "Last 7 days": ( 
+            relative_start0 - relativedelta(weeks=1),  # type: ignore
             relative_end,
         ),
         "Last month": (
