@@ -950,7 +950,7 @@ export const controls = {
     type: 'DateFilterControl',
     freeForm: true,
     label: t('Time range'),
-    default: t('Last week'),
+    default: t('Last 7 days'),
   },
 
   max_bubble_size: {

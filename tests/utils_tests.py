@@ -64,7 +64,7 @@ def mock_parse_human_datetime(s):
         return datetime(2016, 11, 8)
     elif s == "Last year":
         return datetime(2015, 11, 7)
-    elif s == "Last week":
+    elif s == "Last 7 days":
         return datetime(2015, 10, 31)
     elif s == "Last 5 months":
         return datetime(2016, 6, 7)
@@ -684,15 +684,15 @@ class UtilsTestCase(unittest.TestCase):
         expected = datetime(2016, 11, 2), datetime(2016, 11, 7, 9, 30, 10)
         self.assertEqual(result, expected)
 
-        result = get_since_until("Last week", relative_end="now")
+        result = get_since_until("Last 7 days", relative_end="now")
         expected = datetime(2016, 10, 31), datetime(2016, 11, 7, 9, 30, 10)
         self.assertEqual(result, expected)
 
-        result = get_since_until("Last week", relative_start="now")
+        result = get_since_until("Last 7 days", relative_start="now")
         expected = datetime(2016, 10, 31, 9, 30, 10), datetime(2016, 11, 7)
         self.assertEqual(result, expected)
 
-        result = get_since_until("Last week", relative_start="now", relative_end="now")
+        result = get_since_until("Last 7 days", relative_start="now", relative_end="now")
         expected = datetime(2016, 10, 31, 9, 30, 10), datetime(2016, 11, 7, 9, 30, 10)
         self.assertEqual(result, expected)
 

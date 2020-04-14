@@ -58,7 +58,7 @@ const RELATIVE_TIME_OPTIONS = Object.freeze({
 });
 const COMMON_TIME_FRAMES = [
   'Last day',
-  'Last week',
+  'Last 7 days',
   'Last month',
   'Last quarter',
   'Last year',
@@ -92,7 +92,7 @@ const propTypes = {
 const defaultProps = {
   animation: true,
   onChange: () => {},
-  value: 'Last week',
+  value: 'Last 7 days',
   onOpenDateFilterControl: () => {},
   onCloseDateFilterControl: () => {},
 };
@@ -111,7 +111,16 @@ function getStateFromSeparator(value) {
 }
 
 function getStateFromCommonTimeFrame(value) {
-  const units = value.split(' ')[1] + 's';
+  // https://accelbyte.atlassian.net/browse/AN-241 change last week to Last 7 days
+  let units 
+  switch (value) {
+    case "Last 7 days":
+      units = "week"
+      break;
+      default:
+        units = value.split(' ')[1] + 's';
+        break;
+      }
   return {
     tab: TABS.DEFAULTS,
     type: TYPES.DEFAULTS,
