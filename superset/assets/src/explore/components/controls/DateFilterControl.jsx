@@ -56,6 +56,16 @@ const RELATIVE_TIME_OPTIONS = Object.freeze({
   LAST: 'Last',
   NEXT: 'Next',
 });
+
+const OLD_COMMON_TIME_FRAMES = [
+  'Last day',
+  'Last week',
+  'Last month',
+  'Last quarter',
+  'Last year',
+  'No filter',
+];
+
 const COMMON_TIME_FRAMES = [
   'Last day',
   'Last 7 days',
@@ -111,16 +121,8 @@ function getStateFromSeparator(value) {
 }
 
 function getStateFromCommonTimeFrame(value) {
-  // https://accelbyte.atlassian.net/browse/AN-241 change last week to Last 7 days
-  let units 
-  switch (value) {
-    case "Last 7 days":
-      units = "week"
-      break;
-      default:
-        units = value.split(' ')[1] + 's';
-        break;
-      }
+  const time = timeTranslator(value)
+  const units = time.split(' ')[1] + 's';
   return {
     tab: TABS.DEFAULTS,
     type: TYPES.DEFAULTS,
@@ -159,6 +161,28 @@ function getStateFromCustomRange(value) {
   };
 }
 
+function timeTranslator(value) {
+  let newTime
+  switch (value.toLowerCase()) {
+    case "yesterday":
+      newTime = "Last day"
+      break;
+    case "last 24 hours":
+      newTime = "Last day"
+      break;
+    case "last 7 days":
+      newTime = "Last week"
+      break;
+    case "last 30 days":
+      newTime = "Last month"
+      break;
+    default:
+      newTime = value
+      break;
+  }
+  return newTime
+}
+
 export default class DateFilterControl extends React.Component {
   constructor(props) {
     super(props);
@@ -186,10 +210,10 @@ export default class DateFilterControl extends React.Component {
       untilViewMode: 'days',
     };
 
-    const value = props.value;
+    const value = timeTranslator(props.value)
     if (value.indexOf(SEPARATOR) >= 0) {
       this.state = { ...this.state, ...getStateFromSeparator(value) };
-    } else if (COMMON_TIME_FRAMES.indexOf(value) >= 0) {
+    } else if (OLD_COMMON_TIME_FRAMES.indexOf(value) >= 0 || COMMON_TIME_FRAMES.indexOf(value) >= 0) {
       this.state = { ...this.state, ...getStateFromCommonTimeFrame(value) };
     } else {
       this.state = { ...this.state, ...getStateFromCustomRange(value) };
@@ -361,7 +385,9 @@ export default class DateFilterControl extends React.Component {
           placement="left"
           overlay={
             <Tooltip id={`tooltip-${timeFrame}`}>
-              {nextState.since}<br />{nextState.until}
+              {nextState.since.replace('T00:00:00', '')} {endpoints && `(${endpoints[0]})`}
+              <br />
+              {nextState.until.replace('T00:00:00', '')} {endpoints && `(${endpoints[1]})`}
             </Tooltip>
           }
         >
