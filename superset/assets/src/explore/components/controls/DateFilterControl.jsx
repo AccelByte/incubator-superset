@@ -385,9 +385,9 @@ export default class DateFilterControl extends React.Component {
           placement="left"
           overlay={
             <Tooltip id={`tooltip-${timeFrame}`}>
-              {nextState.since.replace('T00:00:00', '')} {endpoints && `(${endpoints[0]})`}
+              {nextState.since.replace('T00:00:00', '')}
               <br />
-              {nextState.until.replace('T00:00:00', '')} {endpoints && `(${endpoints[1]})`}
+              {nextState.until.replace('T00:00:00', '')}
             </Tooltip>
           }
         >
