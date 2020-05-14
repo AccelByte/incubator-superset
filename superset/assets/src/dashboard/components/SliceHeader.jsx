@@ -103,7 +103,7 @@ class SliceHeader extends React.PureComponent {
         <div className="header">
           <EditableTitle
             title={
-              sliceName ||
+              t(sliceName) ||
               (editMode
                 ? '---' // this makes an empty title clickable
                 : '')
