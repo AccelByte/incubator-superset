@@ -44,6 +44,10 @@ import {
   LOG_ACTIONS_TOGGLE_EDIT_DASHBOARD,
 } from '../../logger/LogUtils';
 
+import { SupersetClient } from '@superset-ui/connection';
+import LanguagePicker from "../../components/LanguagePickerEmbed"
+import getClientErrorObject from 'src/utils/getClientErrorObject';
+
 const propTypes = {
   addSuccessToast: PropTypes.func.isRequired,
   addDangerToast: PropTypes.func.isRequired,
@@ -116,6 +120,7 @@ class Header extends React.PureComponent {
     this.forceRefresh = this.forceRefresh.bind(this);
     this.startPeriodicRender = this.startPeriodicRender.bind(this);
     this.overwriteDashboard = this.overwriteDashboard.bind(this);
+    this.translatePages = this.translatePages.bind(this);
   }
 
   componentDidMount() {
@@ -257,6 +262,17 @@ class Header extends React.PureComponent {
       this.props.onSave(data, dashboardInfo.id, SAVE_TYPE_OVERWRITE);
     }
   }
+  translatePages(lang) {
+    SupersetClient.get({ endpoint: `/lang/${lang}`, redirect: 'follow' })
+      .then(res => alert(res))
+      .catch(response =>
+        getClientErrorObject(response).then(({ error, statusText }) => {
+          // reload the page
+          window.location.reload();
+          return Promise.reject(error || statusText);
+        }),
+      );
+  }
 
   render() {
     const {
@@ -288,11 +304,15 @@ class Header extends React.PureComponent {
     const userCanSaveAs = dashboardInfo.dash_save_perm;
     const popButton = hasUnsavedChanges;
 
+    const container = document.getElementById('app');
+    const bootstrap = JSON.parse(container.getAttribute('data-bootstrap'));
+    const navbarRight = bootstrap.common.menu_data.navbar_right
+
     return (
       <div className="dashboard-header">
         <div className="dashboard-component-header header-large">
           <EditableTitle
-            title={dashboardTitle}
+            title={t(dashboardTitle)}
             canEdit={userCanEdit && editMode}
             onSaveTitle={this.handleChangeText}
             showTooltip={false}
@@ -316,7 +336,7 @@ class Header extends React.PureComponent {
           </span>
         </div>
 
-        <div className="button-container">
+        <div className="button-container nav">
           {userCanSaveAs && (
             <div className="button-container">
               {editMode && (
@@ -426,6 +446,13 @@ class Header extends React.PureComponent {
             userCanSave={userCanSaveAs}
             isLoading={isLoading}
           />
+          <ul className="navbar-nav navbar-right lang-picker-embed">
+            <LanguagePicker
+              locale={navbarRight.locale}
+              languages={navbarRight.languages}
+              onSelectLanguage={this.translatePages}
+            />
+          </ul>
         </div>
       </div>
     );
