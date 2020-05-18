@@ -18,32 +18,36 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavDropdown, MenuItem } from 'react-bootstrap';
+import { NavDropdown } from 'react-bootstrap';
 
 const propTypes = {
   locale: PropTypes.string.isRequired,
-  languages: PropTypes.object.isRequired,
   onSelectLanguage: PropTypes.func
 };
 
-export default function LanguagePicker({ locale, languages, onSelectLanguage }) {
+const availableLanguages = {
+  "en": {"flag": "us", "name": "English"},
+  "zh": {"flag": "cn", "name": "Chinese"},
+}
+
+export default function LanguagePicker({ locale, onSelectLanguage }) {
   return (
     <NavDropdown
       id="locale-dropdown"
       title={
         <span className="f16">
-          <i className={`flag ${languages[locale].flag}`} />
+          <i className={`flag ${availableLanguages[locale].flag}`} />
         </span>
       }
     >
-      {Object.keys(languages).map(langKey =>
+      {Object.keys(availableLanguages).map(langKey =>
         langKey === locale ? null : (
             <div className="dropdown">
                 <div className="language-key" key={langKey} onClick={() => onSelectLanguage(langKey)}>
                     {' '}
                     <div className="f16">
-                    <i className={`flag ${languages[langKey].flag}`} /> -{' '}
-                    {languages[langKey].name}
+                    <i className={`flag ${availableLanguages[langKey].flag}`} /> -{' '}
+                    {availableLanguages[langKey].name}
                     </div>
                 </div>
             </div>

@@ -306,7 +306,7 @@ class Header extends React.PureComponent {
 
     const container = document.getElementById('app');
     const bootstrap = JSON.parse(container.getAttribute('data-bootstrap'));
-    const navbarRight = bootstrap.common.menu_data.navbar_right
+    const navbarRight = bootstrap.common;
 
     return (
       <div className="dashboard-header">
@@ -449,7 +449,6 @@ class Header extends React.PureComponent {
           <ul className="navbar-nav navbar-right lang-picker-embed">
             <LanguagePicker
               locale={navbarRight.locale}
-              languages={navbarRight.languages}
               onSelectLanguage={this.translatePages}
             />
           </ul>
