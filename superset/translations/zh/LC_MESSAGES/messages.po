@@ -5512,3 +5512,51 @@ msgstr "线宽"
 
 #~ msgid  "Marvel Three Times' Analytics"
 #~ msgstr "Marvel Three Times' 分析工具"
+
+#~ msgid "Users"
+#~ msgstr"用户"
+
+#~ msgid "Revenue"
+#~ msgstr"收入"
+
+#~ msgid "Current Monthly Active User Count"
+#~ msgstr"当前每月活跃用户数"
+
+#~ msgid "Current Total Users"
+#~ msgstr"当前总用户"
+
+#~ msgid "Chart Filter"
+#~ msgstr"图表过滤器"
+
+#~ msgid "Daily Active Users"
+#~ msgstr"每日活跃用户"
+
+#~ msgid "Newly Registered Users"
+#~ msgstr"新注册用户"
+
+#~ msgid "Monthly Active Users"
+#~ msgstr"每月活跃用户"
+
+#~ msgid "User Retention"
+#~ msgstr"用户保留"
+
+#~ msgid "1 Day Retention"
+#~ msgstr"1天保留期"
+
+#~ msgid "Concurrent Users"
+#~ msgstr"并发用户"
+
+#~ msgid "Maximum Concurrent User"
+#~ msgstr"最大并行用户"
+
+#~ msgid "Max Concurrent Users"
+#~ msgstr"最大同时用户数"
+
+#~ msgid "Stickiness"
+#~ msgstr"僵硬"
+
+#~ msgid "Session Duration"
+#~ msgstr"会话时长"
+
+#~ msgid "Churn Rate"
+#~ msgstr"客户流失率"

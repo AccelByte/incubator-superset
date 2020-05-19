@@ -3331,24 +3331,6 @@
       "Saved Queries": [
         "已保存查询"
       ],
-      "Query record was not created as expected.": ["查询记录没有按预期创建。"],
-      "Template Name": ["模板名称"],
-      "CSS Templates": ["CSS 模板"],
-      "SQL Editor": ["SQL 编辑器"],
-      "SQL Lab": ["SQL 工具箱"],
-      "Query Search": ["查询搜索"],
-      "Upload a CSV": ["上传CSV文件"],
-      "Status": ["状态"],
-      "Start Time": ["开始时间"],
-      "End Time": ["结束时间"],
-      "Queries": ["查询"],
-      "List Saved Query": ["保存的查询列表"],
-      "Show Saved Query": ["显示保存的查询"],
-      "Add Saved Query": ["添加保存的查询"],
-      "Edit Saved Query": ["编辑保存的查询"],
-      "Pop Tab Link": ["弹出标签链接"],
-      "Changed on": ["改变为"],
-      "Saved Queries": ["已保存查询"],
 
       "QATEST's Analytics": ["QATEST's 分析工具"],
       "Excelsior's Analytics": ["Excelsior's 分析工具"],
@@ -3398,7 +3380,24 @@
       "Marvel Once's Analytics": ["Marvel Once's 分析工具"],
       "Fantastic One's Analytics": ["Fantastic One's 分析工具"],
       "QATest's Analytics": ["QATest's 分析工具"],
-      "New Light Fantastic's Analytics": ["New Light Fantastic's 分析工具"]
+      "New Light Fantastic's Analytics": ["New Light Fantastic's 分析工具"],
+
+      "Users": ["用户"],
+      "Revenue": ["收入"],
+      "Current Monthly Active User Count": ["当前每月活跃用户数"],
+      "Current Total Users": ["当前总用户"],
+      "Chart Filter": ["图表过滤器"],
+      "Daily Active Users": ["每日活跃用户"],
+      "Newly Registered Users": ["新注册用户"],
+      "Monthly Active Users": ["每月活跃用户"],
+      "User Retention": ["用户保留"],
+      "1 Day Retention": ["1天保留期"],
+      "Concurrent Users": ["并发用户"],
+      "Maximum Concurrent User": ["最大并行用户"],
+      "Max Concurrent Users": ["最大同时用户数"],
+      "Stickiness": ["僵硬"],
+      "Session Duration": ["会话时长"],
+      "Churn Rate": ["客户流失率"]
     }
   }
 }
