@@ -19,6 +19,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { t } from '@superset-ui/translation';
 import DashboardComponent from '../../containers/DashboardComponent';
 import DragDroppable from '../dnd/DragDroppable';
 import EditableTitle from '../../../components/EditableTitle';
@@ -246,7 +247,7 @@ export default class Tab extends React.PureComponent {
               editMode={editMode}
             >
               <EditableTitle
-                title={component.meta.text}
+                title={t(component.meta.text)}
                 canEdit={editMode && isFocused}
                 onSaveTitle={this.handleChangeText}
                 showTooltip={false}
