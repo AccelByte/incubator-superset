@@ -1218,7 +1218,7 @@ msgid "Save as"
 msgstr "另存为"
 
 #: superset/assets/src/dashboard/components/Controls.jsx:131
-msgid "Force Refresh"
+msgid "Force refresh"
 msgstr "强制刷新"
 
 #: superset/assets/src/dashboard/components/Controls.jsx:132
@@ -4836,7 +4836,7 @@ msgid "Add Dashboard"
 msgstr "添加仪表盘"
 
 #: superset/views/core.py:535
-msgid "Edit Dashboard"
+msgid "Edit dashboard"
 msgstr "编辑仪表盘"
 
 #: superset/views/core.py:547
@@ -5363,6 +5363,24 @@ msgstr "线宽"
 #~ msgid "Cannot find User %(name)s, please ask your admin to create one."
 #~ msgstr "找不到用户 %(name)s，请您让管理员创建一个。"
 
+#~ msgid  "Edit chart metadata"
+#~ msgstr "编辑图表元数据"
+
+#~ msgid  "Share chart"
+#~ msgstr "分享图表"
+
+#~ msgid "Force refresh dashboard"
+#~ msgstr "强制刷新仪表板"
+
+#~ msgid "Auto-refresh dashboard"
+#~ msgstr "自动刷新仪表板"
+
+#~ msgid "Share dashboard"
+#~ msgstr "共享仪表板"
+
+#~ msgid  "Time range"
+#~ msgstr "时间范围"
+
 #~ msgid  "QATEST's Analytics"
 #~ msgstr "QATEST's 分析工具"
 
@@ -5370,7 +5388,7 @@ msgstr "线宽"
 #~ msgstr "Excelsior's 分析工具"
 
 #~ msgid  "All Namespace's Analytics"
-#~ msgstr "All Namespace's 分析工具"
+#~ msgstr "所有名称空间 分析工具"
 
 #~ msgid  "Testnamespace's Analytics"
 #~ msgstr "Testnamespace's 分析工具"

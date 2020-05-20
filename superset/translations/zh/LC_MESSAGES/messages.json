@@ -802,7 +802,7 @@
       "Save as": [
         "另存为"
       ],
-      "Force Refresh": [
+      "Force refresh": [
         "强制刷新"
       ],
       "Force refresh the whole dashboard": [
@@ -3187,7 +3187,7 @@
       "Add Dashboard": [
         "添加看板"
       ],
-      "Edit Dashboard": [
+      "Edit dashboard": [
         "编辑看板"
       ],
       "This json object describes the positioning of the widgets in the dashboard. It is dynamically generated when adjusting the widgets size and positions by using drag & drop in the dashboard view": [
@@ -3331,10 +3331,28 @@
       "Saved Queries": [
         "已保存查询"
       ],
+      "Edit chart metadata": [
+        "编辑图表元数据"
+      ],
+      "Share chart": [
+        "分享图表"
+      ],
+      "Force refresh dashboard": [
+        "强制刷新仪表板"
+      ],
+      "Auto-refresh dashboard": [
+        "自动刷新仪表板"
+      ],
+      "Share dashboard": [
+        "共享仪表板"
+      ],
+      "Time range": [
+        "时间范围"
+      ],
 
       "QATEST's Analytics": ["QATEST's 分析工具"],
       "Excelsior's Analytics": ["Excelsior's 分析工具"],
-      "All Namespace's Analytics": ["All Namespace's 分析工具"],
+      "All Namespace's Analytics": ["所有名称空间 分析工具"],
       "Testnamespace's Analytics": ["Testnamespace's 分析工具"],
       "Nimbus's Analytics": ["Nimbus's 分析工具"],
       "Eclipse's Analytics": ["Eclipse's 分析工具"],
