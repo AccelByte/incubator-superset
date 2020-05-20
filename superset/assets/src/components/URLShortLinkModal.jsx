@@ -66,7 +66,7 @@ class URLShortLinkModal extends React.Component {
         isMenuItem={this.props.isMenuItem}
         triggerNode={this.props.triggerNode}
         beforeOpen={this.getCopyUrl}
-        modalTitle={this.props.title || t('Share Dashboard')}
+        modalTitle={this.props.title || t('Share dashboard')}
         modalBody={
           <div>
             <CopyToClipboard

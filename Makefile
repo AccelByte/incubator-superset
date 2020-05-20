@@ -7,7 +7,7 @@ TIMESTAMP := $(shell date +%s)
 
 NODE_VERSION     := latest
 PYTHON_VERSION   := 3.6
-SUPERSET_VERSION := 0.35.10
+SUPERSET_VERSION := 0.35.11
 
 .PHONY: default clean clobber edge latest push $(IMAGES) $(SHELLS)
 
