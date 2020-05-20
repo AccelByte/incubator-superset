@@ -59,6 +59,7 @@ const RELATIVE_TIME_OPTIONS = Object.freeze({
 
 const OLD_COMMON_TIME_FRAMES = [
   'Last day',
+  'Last day',
   'Last week',
   'Last month',
   'Last quarter',
@@ -67,9 +68,10 @@ const OLD_COMMON_TIME_FRAMES = [
 ];
 
 const COMMON_TIME_FRAMES = [
-  'Last day',
+  'Today',
+  'Last 24 hours',
   'Last 7 days',
-  'Last month',
+  'Last 30 days',
   'Last quarter',
   'Last year',
   'No filter',
@@ -164,6 +166,9 @@ function getStateFromCustomRange(value) {
 function timeTranslator(value) {
   let newTime
   switch (value.toLowerCase()) {
+    case "today":
+      newTime = "Last day"
+      break;
     case "yesterday":
       newTime = "Last day"
       break;
