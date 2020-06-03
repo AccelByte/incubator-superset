@@ -2896,6 +2896,10 @@ class Superset(BaseSupersetView):
             500,
         )
 
+    @app.errorhandler(404) 
+    def not_found(e): 
+        return render_template("superset/404.html") 
+
     @expose("/welcome")
     def welcome(self):
         """Personalized welcome page"""
