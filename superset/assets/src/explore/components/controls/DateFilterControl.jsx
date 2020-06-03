@@ -167,7 +167,7 @@ function timeTranslator(value) {
   let newTime
   switch (value.toLowerCase()) {
     case "today":
-      newTime = "Last day"
+      newTime = "Today"
       break;
     case "yesterday":
       newTime = "Last day"

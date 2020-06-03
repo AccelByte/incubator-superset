@@ -1047,8 +1047,8 @@ def get_since_until(
     relative_end = parse_human_datetime(relative_end if relative_end else "today")
     common_time_frames = {
         "Today": (
-            relative_start - relativedelta(days=1),  # type: ignore
-            relative_end,
+            relative_start, # type: ignore
+            datetime.now(), # find current date
         ),
         "Last day": (
             relative_start - relativedelta(days=1),  # type: ignore
@@ -1059,7 +1059,7 @@ def get_since_until(
             relative_end,
         ),
         "Last 24 hours": (
-            relative_start - relativedelta(days=1),  # type: ignore
+            relative_start - relativedelta(hours=24),  # type: ignore
             relative_end,
         ),
         "Last week": (
