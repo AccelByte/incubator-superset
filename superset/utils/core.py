@@ -1051,32 +1051,32 @@ def get_since_until(
             datetime.now(), # find current date
         ),
         "Last day": (
-            relative_start - relativedelta(days=1),  # type: ignore
-            relative_end,
+            (datetime.utcnow() - relativedelta(days=1)),  # type: ignore
+            datetime.now(),
         ),
         "Yesterday": (
-            relative_start - relativedelta(days=1),  # type: ignore
-            relative_end,
+            (datetime.utcnow() - relativedelta(days=1)),  # type: ignore
+            datetime.now(),
         ),
         "Last 24 hours": (
-            relative_start - relativedelta(hours=24),  # type: ignore
-            relative_end,
+            (datetime.utcnow() - relativedelta(days=1)),  # type: ignore
+            datetime.now(),
         ),
         "Last week": (
-            relative_start - relativedelta(weeks=1),  # type: ignore
-            relative_end,
+            (datetime.utcnow() - relativedelta(weeks=1)),  # type: ignore
+            datetime.now(),
         ),
         "Last 7 days": ( 
-            relative_start - relativedelta(weeks=1),  # type: ignore
-            relative_end,
+            (datetime.utcnow() - relativedelta(weeks=1)),  # type: ignore
+            datetime.now(),
         ),
         "Last month": (
-            relative_start - relativedelta(months=1),  # type: ignore
-            relative_end,
+            (datetime.utcnow() - relativedelta(months=1)),  # type: ignore
+            datetime.now(),
         ),
         "Last 30 days": (
-            relative_start - relativedelta(months=1),  # type: ignore
-            relative_end,
+            (datetime.utcnow() - relativedelta(months=1)),  # type: ignore
+            datetime.now(),
         ),
         "Last quarter": (
             relative_start - relativedelta(months=3),  # type: ignore
