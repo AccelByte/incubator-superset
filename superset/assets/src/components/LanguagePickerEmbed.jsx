@@ -44,9 +44,8 @@ export default function LanguagePicker({ locale, onSelectLanguage }) {
         langKey === locale ? null : (
             <div className="dropdown">
                 <div className="language-key" key={langKey} onClick={() => onSelectLanguage(langKey)}>
-                    {' '}
                     <div className="f16">
-                    <i className={`flag ${availableLanguages[langKey].flag}`} /> -{' '}
+                    <i className={`flag ${availableLanguages[langKey].flag}`} />
                     {availableLanguages[langKey].name}
                     </div>
                 </div>
