@@ -3415,7 +3415,11 @@
       "Max Concurrent Users": ["最大同时用户数"],
       "Stickiness": ["僵硬"],
       "Session Duration": ["会话时长"],
-      "Churn Rate": ["客户流失率"]
+      "Churn Rate": ["客户流失率"],
+      "Servers Cost": ["服务器成本"],
+      "Total Cost This Month (Estimated)": ["本月总费用（估算)"],
+      "All Namespace Cost History (Estimated)": ["所有命名空间成本历史记录（估算值)"],
+      "Specific Namespace Cost History (Estimated)": ["特定命名空间成本历史记录（估计值)"]
     }
   }
 }
