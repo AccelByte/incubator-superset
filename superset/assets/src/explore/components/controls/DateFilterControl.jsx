@@ -237,15 +237,28 @@ export default class DateFilterControl extends React.Component {
     this.setTypeCustomStartEnd = this.setTypeCustomStartEnd.bind(this);
     this.toggleCalendar = this.toggleCalendar.bind(this);
     this.changeTab = this.changeTab.bind(this);
+    this.handlePostMessageEvent = this.handlePostMessageEvent.bind(this);
   }
 
   componentDidMount() {
     document.addEventListener('click', this.handleClick);
+    window.addEventListener("message", this.handlePostMessageEvent);
   }
 
   componentWillUnmount() {
     document.removeEventListener('click', this.handleClick);
+    window.removeEventListener("message", this.handlePostMessageEvent);
   }
+
+  handlePostMessageEvent(event) {
+    this.props.onCloseDateFilterControl();
+    
+    if (!event.data.type && !event.data.payload) {
+      // modify filter base on postMessage
+      this.props.onChange(event.data);
+    }
+  }
+
   onEnter(event) {
     if (event.key === 'Enter') {
       this.close();
@@ -329,6 +342,8 @@ export default class DateFilterControl extends React.Component {
     this.props.onChange(val);
     this.refs.trigger.hide();
     this.setState({ showSinceCalendar: false, showUntilCalendar: false });
+    // send postMessage to parent
+    parent.postMessage(val, "*");
   }
   isValidSince(date) {
     return (!isValidMoment(this.state.until) || date <= moment(this.state.until, MOMENT_FORMAT));
