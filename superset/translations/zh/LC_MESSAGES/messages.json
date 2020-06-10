@@ -3419,7 +3419,8 @@
       "Servers Cost": ["服务器成本"],
       "Total Cost This Month (Estimated)": ["本月总费用（估算)"],
       "All Namespace Cost History (Estimated)": ["所有命名空间成本历史记录（估算值)"],
-      "Specific Namespace Cost History (Estimated)": ["特定命名空间成本历史记录（估计值)"]
+      "Specific Namespace Cost History (Estimated)": ["特定命名空间成本历史记录（估计值)"],
+      "Concurrent Users (Activity)": ["并发用户（活动）"]
     }
   }
 }
