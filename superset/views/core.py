@@ -633,10 +633,63 @@ appbuilder.add_view_no_menu(DashboardAddView)
 
 
 @talisman(force_https=False)
-@app.route("/health")
+@app.route("/healthz")
 def health():
-    return "OK"
+    db_health = {}
+    status = db.session.connection()._is_disconnect
+    hostname = db.session.connection().engine.url.host
+    service_name = "amalgam_superset"
+    healthiness = False
+    db_health["status"] = status
+    db_health["host"] = config.get("POSTGRES_HOST")
 
+    if db_health["host"] == "":
+        db_health["host"] = hostname
+
+    if db_health["status"]:
+        healthiness = False
+    else:
+        healthiness = True
+
+    content = {
+        "name": service_name,
+        "healthy": healthiness,
+        "dependencies": [{
+            "name": "PostgreSQL",
+            "url": db_health["host"],
+            "healthy": True if not db_health["status"] else False
+        }]
+    }
+
+    return json_success(json.dumps(
+        content,
+        ensure_ascii=False,
+        allow_nan=False,
+        indent=4,
+        separators=(", ", ": ")
+    ).encode("utf-8"), status=200)
+
+@talisman(force_https=False)
+@app.route("/version")
+def version():
+    version = config.get("SUPERSET_VERSION")
+
+    if version == "":
+        import os
+        version = os.getenv("SUPERSET_VERSION", "default")
+
+    version_content = {
+        "accelbyte-version": version
+    }
+    if version is None:
+        return json_error_response(payload=version_content)
+    return json_success(json.dumps(
+        version_content,
+        ensure_ascii=False,
+        allow_nan=False,
+        indent=4,
+        separators=(", ", ": ")
+    ).encode("utf-8"), status=200)
 
 @talisman(force_https=False)
 @app.route("/healthcheck")
